@@ -1,0 +1,15 @@
+
+def billing(name,k_no,location,price,duration,area,contact):
+    print("-"*100)
+    print("                                                   Billing")
+    print("-"*100)
+    print("\n|              Name :{}".format(name))
+    print("\n|              Phone Number :{}".format(contact))
+    print("\n|              Kitta Number :{}".format(k_no))
+    print("\n|              Location :{}".format(location))
+    print("\n|              Area :{} {}".format(area,"Ana"))
+    print("\n|              Duration :{}".format(duration))
+    print("\n|              Price: ",price)
+    print("_"*100)
+    print("                                                     End ")
+    print("_"*100)

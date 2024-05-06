@@ -1,5 +1,7 @@
-from read import display
+from read import display,get_price_location_area
+from billing import billing
 from validator import kitta_exist
+from write import update_availability_file
 def main():
     print("\t ------------------------------------")
     print("\t |       Techno Property Land      |  ")
@@ -25,7 +27,11 @@ def main():
                     kn = int(input("Enter Kitta Number: "))
 
                 months = int(input("Enter a the months for renting: "))
-                p = input("Enter the purpose of the renting : ") 
+                p = input("Enter the purpose of the renting : ")
+                location,area,price = get_price_location_area(kn)
+                total_price = int(price)*int(months)
+                billing(name,kn,location,total_price,months,area,phonenumber)  
+                update_availability_file(kn,"Not Available")
                 b= input("   Do you want to see more? ")
                 if b == "no":
                     renting = False
@@ -41,6 +47,10 @@ def main():
                     kno = int(input("Enter Kitta Number: "))
                 expected_month = int(input("Enter the expected rented month : "))
                 actual_month = int(input("Enter  the actual month you have rented the land : "))
+                location,area,price = get_price_location_area(kno)
+                actual_price =  int(price)*int(actual_month)+(10/100)*(int(price)*int(actual_month))
+                billing(name,kno,location,actual_price,actual_month,area,phonenumber)
+                update_availability_file(kno,"Available")
                 a = input("   Do you want to continue ?")
                 if a.strip() == "no":
                     returning = False

@@ -23,3 +23,17 @@ def display():
     for row in data :
        print(row[0]+" "*(12-len(row[0])) + row[1] +" "*(15 - len(row[1])) + row[2] + " "*(15- len(row[2]))+row[3] + " "*(8 - len(row[3]))+row[4] + " "*(10 - len(row[4]))+row[5])
 
+
+def update_file(k_no):
+    data =lands()
+    # for kitta in data:
+    #     if int(kitta[0])==k_no:
+            
+    # return False
+
+def get_price_location_area(kitta_no):
+    data =lands()
+    for kitta in data:
+        if int(kitta[0])==kitta_no:
+            return kitta[1],kitta[3],kitta[4]
+    return None,None,None
